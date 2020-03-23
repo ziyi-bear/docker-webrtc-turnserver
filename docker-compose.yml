@@ -1,0 +1,29 @@
+version: '2'
+
+# 指令:docker-compose build
+services:
+  webrtc-server:
+    build: .
+    #image: jupyterhub-gpu-notebook
+    environment: 
+        - LISTENING_PORT=3478
+        - TLS_LISTENING_PORT=5349
+        - ALT_LISTENING_PORT=3479
+        - ALT_TLS_LISTENING_PORT=5350
+        # 清單(可多個)
+        - LISTEN_IPS=
+        - EXTERNAL_IPS=
+        - TLS_CERT=
+        - TLS_KEY
+        - DH_FILE
+        - RELAY_IP
+        - STATIC_AUTH_SECRET
+        - RELAY_THREADS
+        # NO_AUTH 非空字串
+        - NO_AUTH=TRUE
+        - VERBOSE=1
+        - DEBUG=1
+        # REDIS_STATSDB 非空字串
+        - REDIS_STATSDB
+        - REALM
+        - MIN_PORT=49152
